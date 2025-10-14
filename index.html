@@ -481,27 +481,42 @@
   </footer>
   <script>
     const motionElements = document.querySelectorAll('[data-motion]');
-    const motionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            const delay = target.dataset.delay ? Number(target.dataset.delay) : 0;
-            target.style.setProperty('--motion-delay', `${delay}ms`);
-            target.classList.add('is-visible');
-            motionObserver.unobserve(target);
-          }
-        });
-      },
-      { root: null, threshold: 0.2 }
-    );
 
-    motionElements.forEach((element, index) => {
-      if (!element.dataset.delay) {
-        element.dataset.delay = index * 20;
-      }
-      motionObserver.observe(element);
-    });
+    const applyVisibleState = (element, fallbackDelay = 0) => {
+      const delay = element.dataset.delay
+        ? Number(element.dataset.delay)
+        : fallbackDelay;
+      element.style.setProperty('--motion-delay', `${delay}ms`);
+      element.classList.add('is-visible');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const motionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              applyVisibleState(entry.target);
+              motionObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, threshold: 0.2 }
+      );
+
+      motionElements.forEach((element, index) => {
+        if (!element.dataset.delay) {
+          element.dataset.delay = index * 20;
+        }
+        motionObserver.observe(element);
+      });
+    } else {
+      motionElements.forEach((element, index) => {
+        if (!element.dataset.delay) {
+          element.dataset.delay = index * 20;
+        }
+        applyVisibleState(element, index * 20);
+      });
+    }
   </script>
 </body>
 </html>
