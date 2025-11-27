@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 ANNUAL REPORT | Vivid Editorial</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Oswald"', 'sans-serif'],
+                    },
+                    colors: {
+                        vividPink: '#ff007f',
+                        vividCyan: '#00ffff',
+                        vividYellow: '#ffff00',
+                        vividPurple: '#bc13fe',
+                        darkBg: '#0a0a0a',
+                        cardBg: '#171717',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #ff007f, #bc13fe, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #ff007f, #00ffff);
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 10, 10, 0.8);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff007f;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-bold tracking-wider text-white">2025 <span class="text-vividPink">REPORT</span></a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#art" class="hover:text-vividPink transition duration-300">ART</a>
+                <a href="#music" class="hover:text-vividCyan transition duration-300">MUSIC</a>
+                <a href="#tech" class="hover:text-vividYellow transition duration-300">TECH</a>
+                <a href="#hive" class="hover:text-vividPurple transition duration-300">HIVE/GLOBAL</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkBg absolute w-full border-b border-gray-800">
+            <a href="#art" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">ART</a>
+            <a href="#music" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">MUSIC</a>
+            <a href="#tech" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">TECH</a>
+            <a href="#hive" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">HIVE/GLOBAL</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-vividPink opacity-20 rounded-full blur-3xl filter animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-vividCyan opacity-20 rounded-full blur-3xl filter"></div>
+        </div>
+
+        <div class="container mx-auto px-6 z-10 text-center">
+            <p class="text-vividYellow font-display tracking-widest mb-4 reveal">ANNUAL REPORT 2025</p>
+            <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight reveal">
+                YEAR IN <br>
+                <span class="gradient-text">REVIEW</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 reveal">
+                アート・音楽・EdTech・コミュニティ。<br>
+                4つの領域が交錯し、彩り豊かに広がった一年。
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 reveal">
+                <div class="p-4 border border-gray-700 rounded hover:border-vividPink transition duration-300">
+                    <i class="fas fa-palette text-3xl mb-2 text-vividPink"></i>
+                    <h3 class="font-bold">ART</h3>
+                </div>
+                <div class="p-4 border border-gray-700 rounded hover:border-vividCyan transition duration-300">
+                    <i class="fas fa-music text-3xl mb-2 text-vividCyan"></i>
+                    <h3 class="font-bold">MUSIC</h3>
+                </div>
+                <div class="p-4 border border-gray-700 rounded hover:border-vividYellow transition duration-300">
+                    <i class="fas fa-microchip text-3xl mb-2 text-vividYellow"></i>
+                    <h3 class="font-bold">TECH</h3>
+                </div>
+                <div class="p-4 border border-gray-700 rounded hover:border-vividPurple transition duration-300">
+                    <i class="fas fa-users text-3xl mb-2 text-vividPurple"></i>
+                    <h3 class="font-bold">HIVE</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ART Section -->
+    <section id="art" class="py-20 bg-darkBg relative">
+        <div class="container mx-auto px-6">
+            <div class="mb-16 reveal">
+                <span class="text-vividPink font-display text-6xl opacity-20 absolute -top-10 left-4">ART</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 z-10 relative section-title">ART HIGHLIGHTS</h2>
+                <p class="text-xl text-gray-400">制作・発表・世界観構築が同時に成長した一年。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Highlight 1 -->
+                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
+                    <div class="text-5xl font-display text-gray-700 mb-4">01</div>
+                    <h3 class="text-2xl font-bold mb-3">年間4回の展示</h3>
+                    <p class="text-gray-400">去年まで自分のライブでしか展示してこなかった絵がより広く届くように。</p>
+                </div>
+                <!-- Highlight 2 -->
+                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
+                    <div class="text-5xl font-display text-gray-700 mb-4">02</div>
+                    <h3 class="text-2xl font-bold mb-3">初の個展開催</h3>
+                    <p class="text-gray-400">独自の世界観を空間全体で表現してラップしながら絵を描くことに挑戦しました。</p>
+                </div>
+                <!-- Highlight 3 -->
+                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
+                    <div class="text-5xl font-display text-gray-700 mb-4">03</div>
+                    <h3 class="text-2xl font-bold mb-3">ホテル常設展示</h3>
+                    <p class="text-gray-400">地元・福岡の人気ホテルのギャラリーにて3ヶ月間の長期展示が決定!!</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative border-l border-gray-700 ml-4 md:ml-10 space-y-12 py-8 reveal">
+                <div class="absolute -left-1.5 top-0 w-3 h-3 bg-vividPink rounded-full"></div>
+                
+                <div class="ml-8 relative">
+                    <span class="text-sm text-vividPink font-bold">APRIL</span>
+                    <h4 class="text-xl font-bold">逗子展示</h4>
+                    <p class="text-gray-400">初の一般イベントへの参加</p>
+                </div>
+                
+                <div class="ml-8 relative">
+                    <span class="text-sm text-vividPink font-bold">MAY</span>
+                    <h4 class="text-xl font-bold">福岡 & PEATIX</h4>
+                    <p class="text-gray-400">初の蔦屋書店展示とイベントの現場でのライブペイント</p>
+                </div>
+
+                <div class="ml-8 relative">
+                    <span class="text-sm text-vividPink font-bold">JULY</span>
+                    <h4 class="text-xl font-bold">初の個展を開催</h4>
+                    <p class="text-gray-400">世界観の集大成。11枚の絵が旅立ちました。</p>
+                </div>
+
+                <div class="ml-8 relative">
+                    <span class="text-sm text-vividPink font-bold">NOVEMBER</span>
+                    <h4 class="text-xl font-bold">福岡展示 & ホテル常設</h4>
+                    <p class="text-gray-400">ザ ロイヤルパークホテル キャンバス 福岡中洲</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal">
+                <p class="text-2xl font-display italic">"絵は趣味"から"表現の一環"へ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC Section -->
+    <section id="music" class="py-20 bg-gray-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-start gap-12">
+                <!-- Works List -->
+                <div class="w-full md:w-1/2 reveal">
+                    <span class="text-vividCyan font-display text-6xl opacity-20 absolute -top-10 left-4">MUSIC</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 z-10 relative section-title">MUSIC WORKS</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
+                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">01</div>
+                            <div>
+                                <span class="text-xs text-vividCyan">MAY</span>
+                                <h3 class="text-xl font-bold">希望を</h3>
+                                <p class="text-sm text-gray-400">個展のテーマと紐付け</p>
+                            </div>
+                        </div>
+                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
+                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">02</div>
+                            <div>
+                                <span class="text-xs text-vividCyan">OCT</span>
+                                <h3 class="text-xl font-bold">愛してるとか最後まで言えなかった</h3>
+                                <p class="text-sm text-gray-400">ホテル展示のテーマと紐付け</p>
+                            </div>
+                        </div>
+                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
+                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">03</div>
+                            <div>
+                                <span class="text-xs text-vividCyan">NOV</span>
+                                <h3 class="text-xl font-bold">好きだったあなたの全部が</h3>
+                                <p class="text-sm text-gray-400">MVも自主制作!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Performance Text Content (No Image) -->
+                <div class="w-full md:w-1/2 reveal mt-12 md:mt-0">
+                    <div class="bg-darkBg p-8 rounded-xl border border-gray-800 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-vividCyan opacity-10 rounded-full filter blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                        
+                        <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                            <i class="fas fa-microphone-lines text-vividCyan"></i>
+                            LIVE PERFORMANCE
+                        </h3>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-vividCyan font-bold text-lg mb-2">REGULAR LIVE</h4>
+                                <p class="text-gray-300">年間を通して月1本ペースで継続してライブパフォーマンスも続けています。</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-vividCyan font-bold text-lg mb-2">LIVE PAINT</h4>
+                                <p class="text-gray-300">音楽と共存するライブペイント。<br>特に個展ではフリースタイルラップをしながら絵を描くことに挑戦しました。</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-vividCyan font-bold text-lg mb-2">COMMUNITY</h4>
+                                <p class="text-gray-300">2年前にやっていた音楽イベントで参加してくれた人がイベントを主催してライブするなど、縁が循環しているのを感じます。</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-gray-800">
+                             <p class="text-xl font-display italic text-center">音楽とアートが“一つの体系”として自然につながった年。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH Section -->
+    <section id="tech" class="py-20 bg-darkBg relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4"><span class="text-vividYellow">TECH</span> & AI</h2>
+                <p class="text-xl text-gray-400">GEN AI MASTER / ME Campus</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 reveal">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop" alt="AI Tech" class="rounded-lg shadow-2xl shadow-vividYellow/20 opacity-80">
+                </div>
+                <div class="order-1 md:order-2 reveal">
+                    <h3 class="text-3xl font-bold mb-6">生成AIマスター講座<br>カリキュラム開発</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        ビジネスの現場でリアルにAIを活用してもらうために、用途別の初心者向けカリキュラムを0から制作して完成しました。
+                        「AIに振り回されずに道具として使う塩梅」を意識しています。
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-vividYellow"></i>
+                            <span>3ヶ月講座のカリキュラム設計</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-video text-vividYellow"></i>
+                            <span>動画コンテンツ制作を一貫して担当</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-file-alt text-vividYellow"></i>
+                            <span>スクリプト・スライド・ナレーション制作</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIVE / GLOBAL Section -->
+    <section id="hive" class="py-20 bg-gradient-to-b from-gray-900 to-black relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- HIVE Community -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-display font-bold mb-6 border-b-2 border-vividPurple inline-block pb-2">HIVE COMMUNITY</h2>
+                    <p class="text-gray-400 mb-6">
+                        何歳になっても熱く青い、志を語り合う素晴らしいコミュニティ。<br>
+                        その合宿イベントに参加し、来年は福岡での開催も決定！
+                    </p>
+                    <div class="bg-cardBg p-6 rounded-lg border border-gray-700">
+                        <div class="text-vividPurple font-bold mb-2">NEXT STEP</div>
+                        <h3 class="text-2xl font-bold mb-2">MAY 2026</h3>
+                        <p class="text-gray-300">福岡市でイベント開催決定</p>
+                    </div>
+                </div>
+
+                <!-- Global Challenge -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-display font-bold mb-6 border-b-2 border-vividPurple inline-block pb-2">GLOBAL CHALLENGE</h2>
+                    <p class="text-gray-400 mb-6">
+                        9月：ヨーロッパ2週間の旅。<br>
+                        言語・文化・表現を吸収する旅。アジア圏とはまた違う感想を得られました。
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">France 🇫🇷</span>
+                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Germany 🇩🇪</span>
+                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Czech 🇨🇿</span>
+                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Hungary 🇭🇺</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Podcast Section -->
+            <div class="mt-20 p-8 bg-gray-900 rounded-2xl border border-gray-700 text-center reveal">
+                <i class="fas fa-microphone-alt text-4xl text-vividPurple mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">WEEKLY UPDATE</h3>
+                <p class="text-lg font-bold mb-4">しあのしぇあはぴラジオ</p>
+                <p class="text-gray-400 max-w-xl mx-auto mb-6">
+                    毎週水曜日に更新中。北千住のコミュニティFM「リスラジ」にも参加。<br>
+                    「ストック型」としてアーカイブされるラジオ。100回目を目指して継続中！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-display font-bold mb-6">2025: A YEAR OF <span class="text-vividPink">LEAP</span></h2>
+            <p class="text-gray-500 mb-8">
+                1年後にもまた、今の私が想像できていないような1年の報告ができていますように！
+            </p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-spotify"></i></a>
+            </div>
+            
+            <p class="text-xs text-gray-600">&copy; 2025 Vivid Editorial. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Reveal elements on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu if open
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
