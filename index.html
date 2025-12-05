@@ -1,454 +1,474 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 ANNUAL REPORT | Vivid Editorial</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>【西新宿7分】大人の隠れ家バー｜プライベートレンタルスペース</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Noto Sans JP"', 'sans-serif'],
-                        display: ['"Oswald"', 'sans-serif'],
+                        sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', 'serif'],
                     },
                     colors: {
-                        vividPink: '#ff007f',
-                        vividCyan: '#00ffff',
-                        vividYellow: '#ffff00',
-                        vividPurple: '#bc13fe',
-                        darkBg: '#0a0a0a',
-                        cardBg: '#171717',
-                    }
-                }
-            }
-        }
+                        gold: '#d4af37',
+                        base: '#120e0a',
+                        panel: '#1a1510',
+                        ink: '#e5e5e5',
+                    },
+                    boxShadow: {
+                        gold: '0 10px 40px rgba(212, 175, 55, 0.25)',
+                    },
+                },
+            },
+        };
     </script>
-
     <style>
+        :root {
+            color-scheme: dark;
+        }
+
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(to right, #ff007f, #bc13fe, #00ffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.05), transparent 35%),
+                radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.07), transparent 40%),
+                #120e0a;
+            color: #e5e5e5;
+            scroll-behavior: smooth;
         }
 
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, #ff007f, #00ffff);
+        .hero-bg {
+            background-image: linear-gradient(rgba(10, 8, 6, 0.65), rgba(10, 8, 6, 0.85)),
+                url('https://i.gyazo.com/f5c666fa6ea55e7f778ae466a547807e.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* Scroll Animation Classes */
-        .reveal {
+        .btn-gradient {
+            background: linear-gradient(135deg, #b8860b 0%, #d4af37 45%, #b8860b 100%);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow, 0 12px 30px rgba(212, 175, 55, 0.3));
+            filter: brightness(1.08);
+        }
+
+        .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .reveal.active {
+        .fade-in.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .nav-blur {
-            backdrop-filter: blur(10px);
-            background-color: rgba(10, 10, 10, 0.8);
-        }
-        
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
+
         ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
+            background: #2d241b;
+            border-radius: 999px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #ff007f;
+            background: #3a2e22;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
-<body class="font-sans antialiased">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-blur border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-display font-bold tracking-wider text-white">2025 <span class="text-vividPink">REPORT</span></a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="#art" class="hover:text-vividPink transition duration-300">ART</a>
-                <a href="#music" class="hover:text-vividCyan transition duration-300">MUSIC</a>
-                <a href="#tech" class="hover:text-vividYellow transition duration-300">TECH</a>
-                <a href="#hive" class="hover:text-vividPurple transition duration-300">HIVE/GLOBAL</a>
+<body class="font-sans antialiased leading-relaxed">
+    <!-- Header -->
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-gray-800/70 bg-black/80 backdrop-blur-lg">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+            <div class="font-serif text-xl font-bold tracking-[0.18em] text-white md:text-2xl">
+                HIDEOUT<span class="ml-2 text-sm text-gold">NISHI-SHINJUKU</span>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+            <nav class="hidden items-center space-x-8 md:flex">
+                <a class="text-sm tracking-wide text-gray-300 transition hover:text-gold" href="#about">コンセプト</a>
+                <a class="text-sm tracking-wide text-gray-300 transition hover:text-gold" href="#plan">料金プラン</a>
+                <a class="text-sm tracking-wide text-gray-300 transition hover:text-gold" href="#facility">設備</a>
+                <a class="text-sm tracking-wide text-gray-300 transition hover:text-gold" href="#access">アクセス</a>
+                <a class="btn-gradient rounded-sm px-6 py-2 text-sm font-bold tracking-wide text-black shadow-gold" href="https://spacemarket.com/p/aEPsrNoFTlX7h858" target="_blank" rel="noopener noreferrer">予約はこちらから</a>
+            </nav>
+            <button id="menu-btn" class="text-2xl text-gold md:hidden" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="sr-only">メニューを開く</span>
+                <i class="fas fa-bars"></i>
             </button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-darkBg absolute w-full border-b border-gray-800">
-            <a href="#art" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">ART</a>
-            <a href="#music" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">MUSIC</a>
-            <a href="#tech" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">TECH</a>
-            <a href="#hive" class="block py-4 px-6 hover:bg-gray-900 border-t border-gray-800">HIVE/GLOBAL</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-20 left-20 w-72 h-72 bg-vividPink opacity-20 rounded-full blur-3xl filter animate-pulse"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-vividCyan opacity-20 rounded-full blur-3xl filter"></div>
-        </div>
-
-        <div class="container mx-auto px-6 z-10 text-center">
-            <p class="text-vividYellow font-display tracking-widest mb-4 reveal">ANNUAL REPORT 2025</p>
-            <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight reveal">
-                YEAR IN <br>
-                <span class="gradient-text">REVIEW</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 reveal">
-                アート・音楽・EdTech・コミュニティ。<br>
-                4つの領域が交錯し、彩り豊かに広がった一年。
-            </p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 reveal">
-                <div class="p-4 border border-gray-700 rounded hover:border-vividPink transition duration-300">
-                    <i class="fas fa-palette text-3xl mb-2 text-vividPink"></i>
-                    <h3 class="font-bold">ART</h3>
-                </div>
-                <div class="p-4 border border-gray-700 rounded hover:border-vividCyan transition duration-300">
-                    <i class="fas fa-music text-3xl mb-2 text-vividCyan"></i>
-                    <h3 class="font-bold">MUSIC</h3>
-                </div>
-                <div class="p-4 border border-gray-700 rounded hover:border-vividYellow transition duration-300">
-                    <i class="fas fa-microchip text-3xl mb-2 text-vividYellow"></i>
-                    <h3 class="font-bold">TECH</h3>
-                </div>
-                <div class="p-4 border border-gray-700 rounded hover:border-vividPurple transition duration-300">
-                    <i class="fas fa-users text-3xl mb-2 text-vividPurple"></i>
-                    <h3 class="font-bold">HIVE</h3>
-                </div>
+        <div id="mobile-menu" class="fixed right-0 top-0 h-screen w-64 translate-x-full border-l border-gray-800 bg-panel/95 p-6 shadow-2xl transition-transform duration-300 md:hidden">
+            <button id="close-menu" class="absolute right-4 top-4 text-2xl text-gray-400" aria-label="メニューを閉じる">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mt-10 flex flex-col space-y-6">
+                <a class="border-b border-gray-800 pb-2 text-lg text-white" href="#about">コンセプト</a>
+                <a class="border-b border-gray-800 pb-2 text-lg text-white" href="#plan">料金プラン</a>
+                <a class="border-b border-gray-800 pb-2 text-lg text-white" href="#facility">設備・備品</a>
+                <a class="border-b border-gray-800 pb-2 text-lg text-white" href="#access">アクセス</a>
+                <a class="border-b border-gray-800 pb-2 text-lg text-white" href="#rules">注意事項</a>
+                <a class="btn-gradient mt-2 rounded-sm py-3 text-center font-bold text-black shadow-gold" href="https://spacemarket.com/p/aEPsrNoFTlX7h858" target="_blank" rel="noopener noreferrer">予約はこちらから</a>
             </div>
         </div>
     </header>
 
-    <!-- ART Section -->
-    <section id="art" class="py-20 bg-darkBg relative">
-        <div class="container mx-auto px-6">
-            <div class="mb-16 reveal">
-                <span class="text-vividPink font-display text-6xl opacity-20 absolute -top-10 left-4">ART</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 z-10 relative section-title">ART HIGHLIGHTS</h2>
-                <p class="text-xl text-gray-400">制作・発表・世界観構築が同時に成長した一年。</p>
+    <!-- Hero -->
+    <section class="hero-bg relative flex min-h-screen items-center justify-center px-4 pt-24">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-base"></div>
+        <div class="fade-in relative z-10 mx-auto max-w-4xl text-center space-y-6">
+            <p class="text-sm font-medium tracking-[0.28em] text-gold md:text-base">西新宿 徒歩7分</p>
+            <h1 class="font-serif text-3xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+                西新宿の夜を、<br class="md:hidden" />貸し切る贅沢。<br />
+                <span class="mt-3 block text-2xl font-light md:text-4xl">大人の隠れ家バー</span>
+            </h1>
+            <p class="text-sm leading-7 text-gray-300 md:text-lg md:leading-9">
+                喧騒を離れ、重厚なソファに身を沈める。<br />
+                上司も部下も、肩書きを忘れて語り合える場所。<br />
+                完全貸切ではないからこそ実現した、特別なプライスでご提供します。
+            </p>
+            <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
+                <a class="btn-gradient rounded-sm px-10 py-4 text-lg font-bold tracking-[0.08em] text-black shadow-gold" href="https://spacemarket.com/p/aEPsrNoFTlX7h858" target="_blank" rel="noopener noreferrer">予約はこちらから</a>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Highlight 1 -->
-                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
-                    <div class="text-5xl font-display text-gray-700 mb-4">01</div>
-                    <h3 class="text-2xl font-bold mb-3">年間4回の展示</h3>
-                    <p class="text-gray-400">去年まで自分のライブでしか展示してこなかった絵がより広く届くように。</p>
-                </div>
-                <!-- Highlight 2 -->
-                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
-                    <div class="text-5xl font-display text-gray-700 mb-4">02</div>
-                    <h3 class="text-2xl font-bold mb-3">初の個展開催</h3>
-                    <p class="text-gray-400">独自の世界観を空間全体で表現してラップしながら絵を描くことに挑戦しました。</p>
-                </div>
-                <!-- Highlight 3 -->
-                <div class="bg-cardBg p-8 rounded-lg border-l-4 border-vividPink reveal hover:bg-gray-900 transition duration-300">
-                    <div class="text-5xl font-display text-gray-700 mb-4">03</div>
-                    <h3 class="text-2xl font-bold mb-3">ホテル常設展示</h3>
-                    <p class="text-gray-400">地元・福岡の人気ホテルのギャラリーにて3ヶ月間の長期展示が決定!!</p>
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="relative border-l border-gray-700 ml-4 md:ml-10 space-y-12 py-8 reveal">
-                <div class="absolute -left-1.5 top-0 w-3 h-3 bg-vividPink rounded-full"></div>
-                
-                <div class="ml-8 relative">
-                    <span class="text-sm text-vividPink font-bold">APRIL</span>
-                    <h4 class="text-xl font-bold">逗子展示</h4>
-                    <p class="text-gray-400">初の一般イベントへの参加</p>
-                </div>
-                
-                <div class="ml-8 relative">
-                    <span class="text-sm text-vividPink font-bold">MAY</span>
-                    <h4 class="text-xl font-bold">福岡 & PEATIX</h4>
-                    <p class="text-gray-400">初の蔦屋書店展示とイベントの現場でのライブペイント</p>
-                </div>
-
-                <div class="ml-8 relative">
-                    <span class="text-sm text-vividPink font-bold">JULY</span>
-                    <h4 class="text-xl font-bold">初の個展を開催</h4>
-                    <p class="text-gray-400">世界観の集大成。11枚の絵が旅立ちました。</p>
-                </div>
-
-                <div class="ml-8 relative">
-                    <span class="text-sm text-vividPink font-bold">NOVEMBER</span>
-                    <h4 class="text-xl font-bold">福岡展示 & ホテル常設</h4>
-                    <p class="text-gray-400">ザ ロイヤルパークホテル キャンバス 福岡中洲</p>
-                </div>
-            </div>
-            
-            <div class="mt-16 text-center reveal">
-                <p class="text-2xl font-display italic">"絵は趣味"から"表現の一環"へ</p>
-            </div>
+            <p class="text-xs text-gray-400">※ご予約は提携サイト（スペースマーケット）へ移動します</p>
         </div>
+        <div class="pointer-events-none absolute -bottom-20 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/10 blur-3xl"></div>
     </section>
 
-    <!-- MUSIC Section -->
-    <section id="music" class="py-20 bg-gray-900 relative">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-start gap-12">
-                <!-- Works List -->
-                <div class="w-full md:w-1/2 reveal">
-                    <span class="text-vividCyan font-display text-6xl opacity-20 absolute -top-10 left-4">MUSIC</span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 z-10 relative section-title">MUSIC WORKS</h2>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
-                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">01</div>
-                            <div>
-                                <span class="text-xs text-vividCyan">MAY</span>
-                                <h3 class="text-xl font-bold">希望を</h3>
-                                <p class="text-sm text-gray-400">個展のテーマと紐付け</p>
-                            </div>
-                        </div>
-                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
-                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">02</div>
-                            <div>
-                                <span class="text-xs text-vividCyan">OCT</span>
-                                <h3 class="text-xl font-bold">愛してるとか最後まで言えなかった</h3>
-                                <p class="text-sm text-gray-400">ホテル展示のテーマと紐付け</p>
-                            </div>
-                        </div>
-                        <div class="bg-darkBg p-6 rounded border border-gray-700 flex items-center gap-4 hover:border-vividCyan transition">
-                            <div class="bg-vividCyan w-12 h-12 flex items-center justify-center rounded-full text-black font-bold shrink-0">03</div>
-                            <div>
-                                <span class="text-xs text-vividCyan">NOV</span>
-                                <h3 class="text-xl font-bold">好きだったあなたの全部が</h3>
-                                <p class="text-sm text-gray-400">MVも自主制作!</p>
-                            </div>
-                        </div>
+    <!-- About -->
+    <section id="about" class="bg-panel py-16 md:py-20">
+        <div class="fade-in mx-auto flex max-w-5xl flex-col items-center gap-12 px-4 md:flex-row">
+            <div class="w-full md:w-1/2">
+                <img class="w-full rounded shadow-2xl border border-gray-800/70 grayscale-[18%] transition duration-700 hover:grayscale-0" src="https://i.gyazo.com/f5c666fa6ea55e7f778ae466a547807e.jpg" alt="落ち着いたバーカウンター" loading="lazy" />
+            </div>
+            <div class="w-full space-y-6 md:w-1/2">
+                <h2 class="border-l-4 border-gold pl-4 font-serif text-3xl text-white">静寂と美酒を、<br />自由なスタイルで。</h2>
+                <p class="text-justify text-gray-300 leading-7">
+                    西新宿駅から徒歩7分。照明の明るさや空間の距離感がほどよく整えられた、プライベートバー空間です。<br /><br />
+                    クリスマス・忘年会・新年会などの季節イベントはもちろん、推し活鑑賞会、撮影、重要なミーティングなど、大人が静かに集まりたいときに最適な場所をご用意しました。<br /><br />
+                    93㎡の広々とした空間で、最大16名様までご利用いただけます。
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded border border-gray-800 bg-[#201a15] p-4 text-center shadow-inner">
+                        <i class="fas fa-wine-bottle mb-2 text-2xl text-gold"></i>
+                        <p class="text-sm text-gray-200">持ち込み自由</p>
                     </div>
-                </div>
-                
-                <!-- Live Performance Text Content (No Image) -->
-                <div class="w-full md:w-1/2 reveal mt-12 md:mt-0">
-                    <div class="bg-darkBg p-8 rounded-xl border border-gray-800 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-vividCyan opacity-10 rounded-full filter blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                        
-                        <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                            <i class="fas fa-microphone-lines text-vividCyan"></i>
-                            LIVE PERFORMANCE
-                        </h3>
-                        
-                        <div class="space-y-8">
-                            <div>
-                                <h4 class="text-vividCyan font-bold text-lg mb-2">REGULAR LIVE</h4>
-                                <p class="text-gray-300">年間を通して月1本ペースで継続してライブパフォーマンスも続けています。</p>
-                            </div>
-
-                            <div>
-                                <h4 class="text-vividCyan font-bold text-lg mb-2">LIVE PAINT</h4>
-                                <p class="text-gray-300">音楽と共存するライブペイント。<br>特に個展ではフリースタイルラップをしながら絵を描くことに挑戦しました。</p>
-                            </div>
-
-                            <div>
-                                <h4 class="text-vividCyan font-bold text-lg mb-2">COMMUNITY</h4>
-                                <p class="text-gray-300">2年前にやっていた音楽イベントで参加してくれた人がイベントを主催してライブするなど、縁が循環しているのを感じます。</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-8 pt-6 border-t border-gray-800">
-                             <p class="text-xl font-display italic text-center">音楽とアートが“一つの体系”として自然につながった年。</p>
-                        </div>
+                    <div class="rounded border border-gray-800 bg-[#201a15] p-4 text-center shadow-inner">
+                        <i class="fas fa-tv mb-2 text-2xl text-gold"></i>
+                        <p class="text-sm text-gray-200">動画視聴OK</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TECH Section -->
-    <section id="tech" class="py-20 bg-darkBg relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4"><span class="text-vividYellow">TECH</span> & AI</h2>
-                <p class="text-xl text-gray-400">GEN AI MASTER / ME Campus</p>
+    <!-- Plan -->
+    <section id="plan" class="bg-[#25201b] py-16 md:py-20">
+        <div class="mx-auto max-w-4xl px-4">
+            <div class="text-center">
+                <h2 class="font-serif text-3xl text-white">料金プラン</h2>
+                <p class="mb-10 text-sm text-gray-500">PRICE PLAN (すべて税込価格)</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 reveal">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop" alt="AI Tech" class="rounded-lg shadow-2xl shadow-vividYellow/20 opacity-80">
+            <article class="fade-in relative mb-12 overflow-hidden rounded-md border border-gray-700 bg-panel p-8 shadow-2xl md:p-10">
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold via-white/70 to-gold opacity-70"></div>
+                <h3 class="font-serif text-2xl font-semibold text-white">基本プラン（5時間貸切）</h3>
+                <p class="mb-6 text-sm text-gray-400">18:00〜23:00｜飲食物すべて持ち込み自由</p>
+                <div class="flex flex-col items-start justify-between gap-6 border-b border-gray-800 pb-6 md:flex-row md:items-end">
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><i class="fas fa-check mr-2 text-gold"></i>バーカウンター利用可</li>
+                        <li><i class="fas fa-check mr-2 text-gold"></i>最大16名まで収容可能（93㎡）</li>
+                        <li><i class="fas fa-check mr-2 text-gold"></i>大人の会・誕生日会・推し活に</li>
+                    </ul>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-500 line-through">通常価格</p>
+                        <p class="font-serif text-4xl text-gold md:text-5xl">¥44,000<span class="ml-2 align-top text-base font-sans font-normal text-gray-400">/5h</span></p>
+                        <p class="mt-1 text-xs text-gray-500">※1時間あたり ¥8,800</p>
+                    </div>
                 </div>
-                <div class="order-1 md:order-2 reveal">
-                    <h3 class="text-3xl font-bold mb-6">生成AIマスター講座<br>カリキュラム開発</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        ビジネスの現場でリアルにAIを活用してもらうために、用途別の初心者向けカリキュラムを0から制作して完成しました。
-                        「AIに振り回されずに道具として使う塩梅」を意識しています。
-                    </p>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-vividYellow"></i>
-                            <span>3ヶ月講座のカリキュラム設計</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-video text-vividYellow"></i>
-                            <span>動画コンテンツ制作を一貫して担当</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-file-alt text-vividYellow"></i>
-                            <span>スクリプト・スライド・ナレーション制作</span>
-                        </li>
+                <div class="mt-8 space-y-6">
+                    <div class="flex flex-col items-start gap-2 md:flex-row md:items-center">
+                        <h4 class="border-l-2 border-gold pl-3 text-lg font-medium text-white">選べる飲み放題オプション</h4>
+                        <span class="rounded bg-gold/10 px-2 py-1 text-sm font-bold text-gold"><i class="fas fa-users mr-1"></i>10名様まで"まとめて"この価格！</span>
+                    </div>
+                    <div class="rounded border border-gray-700 bg-black/30 p-4">
+                        <p class="mb-2 text-center text-white font-bold md:text-left"><i class="fas fa-calculator mr-2 text-gold"></i>10名利用時のコスパ最強シミュレーション</p>
+                        <div class="flex flex-col items-center justify-center gap-3 text-sm md:flex-row md:text-base">
+                            <span class="text-gray-300">スペース代 <span class="font-bold text-white">¥44,000</span></span>
+                            <span class="font-bold text-gold">+</span>
+                            <span class="text-gray-300">飲み放題(std) <span class="font-bold text-white">¥11,000</span></span>
+                            <span class="hidden text-gray-400 md:block">=</span>
+                            <span class="w-full border-t border-gray-600 pt-2 text-center text-gray-200 md:w-auto md:border-0 md:pt-0">1人あたり <span class="font-serif text-2xl font-bold text-gold">¥5,500</span><span class="text-xs text-gray-400"> (税込)</span></span>
+                        </div>
+                        <p class="mt-2 text-center text-xs text-gray-400">5時間ゆったり貸切でこの価格。1時間あたりならなんと<span class="underline text-white">¥1,100</span>です。</p>
+                    </div>
+                    <p class="text-center text-sm font-bold text-red-400 md:text-left"><i class="fas fa-exclamation-circle mr-1"></i>お一人様1万円ではありません。グループ合計の料金です。</p>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div class="flex h-full flex-col rounded border border-gray-700 bg-[#201a15] p-6 transition duration-300 hover:border-gray-500">
+                            <h5 class="mb-2 font-bold text-gray-200">スタンダードプラン</h5>
+                            <p class="mb-1 font-serif text-3xl font-bold text-gold">¥11,000<span class="ml-1 text-xs font-sans font-normal text-gray-500">(税込)</span></p>
+                            <p class="mb-2 text-xs text-gray-500">※10名様まで一律</p>
+                            <hr class="my-4 border-gray-700" />
+                            <ul class="flex-grow space-y-2 text-sm text-gray-300">
+                                <li><i class="fas fa-glass-whiskey mr-2 text-gold"></i>ウイスキー・ハイボール</li>
+                                <li><i class="fas fa-cocktail mr-2 text-gold"></i>ジン(ジントニック等も可)</li>
+                                <li><i class="fas fa-wine-bottle mr-2 text-gold"></i>炭酸水・ソフトドリンク</li>
+                                <li><i class="fas fa-check mr-2 text-gold"></i>持ち込みドリンクとの併用OK</li>
+                                <li class="pt-2 text-xs text-gray-500">※ビールは含まれません</li>
+                            </ul>
+                        </div>
+                        <div class="group relative flex h-full flex-col overflow-hidden rounded border border-gold bg-gradient-to-br from-[#2c241b] to-panel p-6 shadow-lg">
+                            <div class="absolute right-0 top-0 bg-red-800 px-3 py-1 text-xs font-bold text-white shadow">生ビール付き</div>
+                            <h5 class="mb-2 flex items-center font-bold text-white"><i class="fas fa-crown mr-2 text-gold"></i>プレミアムプラン</h5>
+                            <p class="mb-1 font-serif text-3xl font-bold text-white">¥33,000<span class="ml-1 text-xs font-sans font-normal text-gray-400">(税込)</span></p>
+                            <p class="mb-2 text-xs text-gray-500">※10名様まで一律</p>
+                            <hr class="my-4 border-gray-600" />
+                            <ul class="flex-grow space-y-2 text-sm text-gray-200">
+                                <li class="-ml-1 rounded bg-gold/10 p-1 font-bold text-gold"><i class="fas fa-beer mr-2"></i>生ビール 10L樽付き！</li>
+                                <li><i class="fas fa-check mr-2 text-gold"></i>スタンダードプラン全内容</li>
+                                <li class="pl-6 text-xs text-gray-400">（ウイスキー/ハイボール/ジン等）</li>
+                                <li><i class="fas fa-check mr-2 text-gold"></i>持ち込みドリンクとの併用OK</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 rounded border border-gray-800 bg-black/25 p-3 text-right text-sm text-gray-300">
+                        <span class="mr-2 rounded bg-gray-700 px-2 py-1 text-xs">11名様以上の場合</span>
+                        どちらのプランでも <span class="font-bold text-white underline">追加1名につき +¥2,200(税込)</span>
+                        <p class="mt-1 text-xs text-gray-500">※予約画面のオプションにてご選択ください。</p>
+                    </div>
+                </div>
+            </article>
+            <div class="space-y-4 fade-in">
+                <h3 class="font-serif text-xl text-white">その他のオプション</h3>
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="rounded border border-gray-700 bg-panel p-4">
+                        <div class="mb-2 flex items-center justify-between">
+                            <span class="font-bold text-gray-200">ゴミ回収プラン（2袋）</span>
+                            <span class="text-gold">¥3,300</span>
+                        </div>
+                        <p class="text-xs text-gray-500">可燃x1、不燃x1。お部屋に置いて帰れます。</p>
+                    </div>
+                    <div class="rounded border border-gray-700 bg-panel p-4">
+                        <div class="mb-2 flex items-center justify-between">
+                            <span class="font-bold text-gray-200">緊急清掃スタッフ</span>
+                            <span class="text-gold">¥33,000</span>
+                        </div>
+                        <p class="text-xs text-gray-500">セルフクリーニング未実施時のみ適用されます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility -->
+    <section id="facility" class="bg-panel py-16 md:py-20">
+        <div class="fade-in mx-auto max-w-5xl px-4">
+            <div class="text-center">
+                <h2 class="font-serif text-3xl text-white">設備・備品</h2>
+                <p class="mb-10 text-sm text-gray-500">FACILITIES</p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 text-center md:grid-cols-2 md:text-left lg:grid-cols-3">
+                <div class="rounded border border-gray-800 bg-[#201a15] p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/80">
+                    <i class="fas fa-couch mb-4 text-3xl text-gold"></i>
+                    <h4 class="mb-2 font-bold text-white">家具・インテリア</h4>
+                    <ul class="space-y-1 text-sm text-gray-300">
+                        <li>バーカウンター</li>
+                        <li>ハイチェアー 8脚</li>
+                        <li>テーブル 2台 / ローテーブル 1台</li>
+                        <li>ソファ（3人用）2台</li>
+                        <li>ソファ（1人用）2台</li>
+                    </ul>
+                </div>
+                <div class="rounded border border-gray-800 bg-[#201a15] p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/80">
+                    <i class="fas fa-video mb-4 text-3xl text-gold"></i>
+                    <h4 class="mb-2 font-bold text-white">エンタメ設備</h4>
+                    <ul class="space-y-1 text-sm text-gray-300">
+                        <li>大型テレビ</li>
+                        <li>YouTube 視聴可能</li>
+                        <li>Netflix / Prime Video 対応</li>
+                        <li class="text-xs text-gray-500">※ご自身のアカウントでログインください</li>
+                        <li class="text-xs text-gray-500">※音声はテレビから出力されます</li>
+                    </ul>
+                </div>
+                <div class="rounded border border-gray-800 bg-[#201a15] p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/80">
+                    <i class="fas fa-utensils mb-4 text-3xl text-gold"></i>
+                    <h4 class="mb-2 font-bold text-white">飲食・その他</h4>
+                    <ul class="space-y-1 text-sm text-gray-300">
+                        <li>グラス類・食器類</li>
+                        <li>製氷機（無料）</li>
+                        <li>エアコン / 電源 / WiFi</li>
+                        <li class="text-xs text-red-400">※調味料の常備はありません</li>
+                        <li class="text-xs text-red-400">※使用後は洗浄をお願いします</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HIVE / GLOBAL Section -->
-    <section id="hive" class="py-20 bg-gradient-to-b from-gray-900 to-black relative">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <!-- HIVE Community -->
-                <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold mb-6 border-b-2 border-vividPurple inline-block pb-2">HIVE COMMUNITY</h2>
-                    <p class="text-gray-400 mb-6">
-                        何歳になっても熱く青い、志を語り合う素晴らしいコミュニティ。<br>
-                        その合宿イベントに参加し、来年は福岡での開催も決定！
-                    </p>
-                    <div class="bg-cardBg p-6 rounded-lg border border-gray-700">
-                        <div class="text-vividPurple font-bold mb-2">NEXT STEP</div>
-                        <h3 class="text-2xl font-bold mb-2">MAY 2026</h3>
-                        <p class="text-gray-300">福岡市でイベント開催決定</p>
-                    </div>
-                </div>
-
-                <!-- Global Challenge -->
-                <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold mb-6 border-b-2 border-vividPurple inline-block pb-2">GLOBAL CHALLENGE</h2>
-                    <p class="text-gray-400 mb-6">
-                        9月：ヨーロッパ2週間の旅。<br>
-                        言語・文化・表現を吸収する旅。アジア圏とはまた違う感想を得られました。
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">France 🇫🇷</span>
-                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Germany 🇩🇪</span>
-                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Czech 🇨🇿</span>
-                        <span class="bg-gray-800 px-4 py-2 rounded-full text-sm border border-gray-600">Hungary 🇭🇺</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Podcast Section -->
-            <div class="mt-20 p-8 bg-gray-900 rounded-2xl border border-gray-700 text-center reveal">
-                <i class="fas fa-microphone-alt text-4xl text-vividPurple mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">WEEKLY UPDATE</h3>
-                <p class="text-lg font-bold mb-4">しあのしぇあはぴラジオ</p>
-                <p class="text-gray-400 max-w-xl mx-auto mb-6">
-                    毎週水曜日に更新中。北千住のコミュニティFM「リスラジ」にも参加。<br>
-                    「ストック型」としてアーカイブされるラジオ。100回目を目指して継続中！
+    <!-- Notice -->
+    <section class="border-y border-gray-800 bg-[#25201b] py-12">
+        <div class="fade-in mx-auto max-w-4xl px-4">
+            <div class="rounded-md border-l-4 border-red-800 bg-black/40 p-6 shadow-lg md:p-8">
+                <h3 class="mb-4 flex items-center text-xl font-bold text-white"><i class="fas fa-exclamation-triangle mr-3 text-red-500"></i>必ずご確認ください：貸切とトイレ利用について</h3>
+                <p class="text-sm leading-relaxed text-gray-200">
+                    本スペースは、<span class="font-bold text-white underline decoration-red-500">1Fの店舗のお客様がトイレ利用のために一時的にスペース内を通過する場合がございます。</span><br />
+                    完全な貸切空間（密室）ではない分、西新宿の好立地ながら<span class="font-bold text-gold">特別価格</span>でご提供しております。<br />
+                    この点をご理解いただける方のみ、ご予約をお願いいたします。
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-gray-800">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-display font-bold mb-6">2025: A YEAR OF <span class="text-vividPink">LEAP</span></h2>
-            <p class="text-gray-500 mb-8">
-                1年後にもまた、今の私が想像できていないような1年の報告ができていますように！
-            </p>
-            
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-2xl hover:text-vividPink transition"><i class="fab fa-spotify"></i></a>
+    <!-- Access -->
+    <section id="access" class="bg-panel py-16 md:py-20">
+        <div class="fade-in mx-auto max-w-4xl px-4 text-center space-y-6">
+            <div>
+                <h2 class="font-serif text-3xl text-white">アクセス</h2>
+                <p class="text-sm text-gray-500">ACCESS</p>
             </div>
-            
-            <p class="text-xs text-gray-600">&copy; 2025 Vivid Editorial. All Rights Reserved.</p>
+            <p class="text-xl text-white">西新宿駅 徒歩7分</p>
+            <p class="text-sm text-gray-400">コンビニや飲食店が多く、買い出しにも便利な立地です。</p>
+            <div class="group relative flex h-48 w-full items-center justify-center overflow-hidden rounded border border-gray-800 bg-[repeating-linear-gradient(45deg,#25201b_0,#25201b_10px,#1a1510_10px,#1a1510_20px)]">
+                <div class="absolute inset-0 bg-black/60 transition duration-500 group-hover:bg-black/45"></div>
+                <div class="relative z-10 space-y-2">
+                    <i class="fas fa-map-marked-alt text-4xl text-gray-500"></i>
+                    <p class="font-serif text-lg font-bold tracking-widest text-gold">SECRET LOCATION</p>
+                    <p class="text-sm text-gray-300">詳しい住所と入室方法は、ご予約確定後のメールにてお知らせいたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules -->
+    <section id="rules" class="bg-[#201a15] py-16">
+        <div class="fade-in mx-auto max-w-4xl px-4">
+            <h2 class="mb-8 text-center font-serif text-2xl text-white">ご利用上の注意・禁止事項</h2>
+            <div class="space-y-4">
+                <details class="group cursor-pointer rounded border border-gray-700 bg-panel p-4 transition duration-300">
+                    <summary class="flex list-none items-center justify-between text-gray-200">
+                        <span><i class="fas fa-broom mr-2 text-gold"></i>清掃・ゴミについて</span>
+                        <i class="fas fa-chevron-down transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 border-l border-gray-700 pl-6 text-sm leading-relaxed text-gray-300">
+                        <p>当施設はセルフクリーニング制です。利用時間内に以下の作業を完了してください。</p>
+                        <ul class="mt-2 list-disc space-y-1 pl-5">
+                            <li>掃除機での清掃</li>
+                            <li>テーブル拭き、食器洗浄と片付け</li>
+                            <li>ゴミの持ち帰り（有料オプション利用時を除く）</li>
+                            <li>家具・備品の現状復帰</li>
+                        </ul>
+                        <p class="mt-2 text-red-400">※違反時は緊急清掃費（33,000円）を請求する場合があります。</p>
+                    </div>
+                </details>
+                <details class="group cursor-pointer rounded border border-gray-700 bg-panel p-4 transition duration-300">
+                    <summary class="flex list-none items-center justify-between text-gray-200">
+                        <span><i class="fas fa-ban mr-2 text-red-500"></i>禁止事項（騒音・喫煙など）</span>
+                        <i class="fas fa-chevron-down transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 border-l border-gray-700 pl-6 text-sm leading-relaxed text-gray-300">
+                        <ul class="list-disc space-y-1 pl-5">
+                            <li>スペース外（入口・共用部）での滞留、大声、騒音</li>
+                            <li>室内および共用部での喫煙（電子タバコはオプション指定場所のみ可）</li>
+                            <li>ゴミの放置・不法投棄</li>
+                            <li>無断延長、無断人数追加</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group cursor-pointer rounded border border-gray-700 bg-panel p-4 transition duration-300">
+                    <summary class="flex list-none items-center justify-between text-gray-200">
+                        <span><i class="fas fa-file-contract mr-2 text-gold"></i>キャンセル・賠償について</span>
+                        <i class="fas fa-chevron-down transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 border-l border-gray-700 pl-6 text-sm leading-relaxed text-gray-300">
+                        <p>物損・騒音・清掃未実施などによりホスト側に損害が生じた場合、原状回復費用・違約金等をご請求いたします。<br />スペースマーケット保険の利用もご検討ください。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black pb-24 pt-10 md:pb-10">
+        <div class="mx-auto max-w-5xl px-4 text-center">
+            <p class="font-serif text-2xl font-bold text-white">HIDEOUT<span class="ml-2 text-sm text-gold">NISHI-SHINJUKU</span></p>
+            <p class="mb-6 text-xs text-gray-500">西新宿の隠れ家レンタルバー</p>
+            <p class="text-xs text-gray-600">&copy; 2025 株式会社miyabi. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll Animation Script -->
+    <!-- Mobile Sticky CTA -->
+    <div class="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between border-t border-gold bg-panel/95 px-4 py-4 shadow-2xl md:hidden">
+        <div>
+            <p class="text-xs text-gray-400">基本プラン(5h)</p>
+            <p class="text-xl font-bold text-gold">¥44,000<span class="ml-1 text-xs font-normal text-gray-500"> (税込)</span></p>
+        </div>
+        <a class="btn-gradient rounded-sm px-6 py-3 text-sm font-bold text-black shadow-gold" href="https://spacemarket.com/p/aEPsrNoFTlX7h858" target="_blank" rel="noopener noreferrer">予約はこちらから</a>
+    </div>
+
     <script>
-        // Reveal elements on scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
 
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+        const toggleMenu = (open) => {
+            const shouldOpen = open ?? mobileMenu.classList.contains('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-full', !shouldOpen);
+            mobileMenu.classList.toggle('translate-x-0', shouldOpen);
+            menuBtn.setAttribute('aria-expanded', String(shouldOpen));
+            body.classList.toggle('overflow-hidden', shouldOpen);
+        };
 
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
-        // Trigger once on load
-        reveal();
-
-        // Mobile Menu Toggle
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', () => toggleMenu(false));
         });
 
         // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                menu.classList.add('hidden'); // Close mobile menu if open
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', (event) => {
+                const targetId = anchor.getAttribute('href');
+                const destination = document.querySelector(targetId);
+                if (!destination) return;
+                event.preventDefault();
+                const headerOffset = 72;
+                const elementPosition = destination.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             });
         });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
